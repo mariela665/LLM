@@ -1,0 +1,255 @@
+-- ============================================================
+-- ESQUEMA DE LA BASE DE DATOS (CONTEXTO OBLIGATORIO)
+-- ============================================================
+
+CREATE TABLE clientes (
+    id_cliente INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    email VARCHAR(100),
+    ciudad VARCHAR(50),
+    telefono VARCHAR(20),
+    estado_cuenta VARCHAR(20),
+    fecha_registro DATE
+);
+
+CREATE TABLE pedidos (
+    id_pedido INT PRIMARY KEY,
+    id_cliente INT,
+    fecha_pedido DATE,
+    monto_total DECIMAL(10,2),
+    metodo_pago VARCHAR(20),
+    estatus VARCHAR(20),
+    cantidad_productos INT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+
+-- ============================================================
+-- BLOQUE 1: SENTENCIAS INSERT (VARIACIÓN DE MAYÚSCULAS/MINÚSCULAS)
+-- ============================================================
+
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (1, 'Carlos', 'Mendoza', 'carlos.mendoza@email.com', 'Madrid', '+34612345678', 'activo', '2024-01-15');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (2, 'Ana', 'García', 'ana.garcia@email.com', 'Barcelona', '+34622345679', 'activo', '2024-02-10');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (3, 'Luis', 'Hernández', 'luis.h@email.com', 'Valencia', '+34632345680', 'inactivo', '2023-11-05');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (4, 'María', 'Rodríguez', 'm.rodriguez@email.com', 'Sevilla', '+34642345681', 'activo', '2024-03-01');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (5, 'Javier', 'López', 'jlopez@email.com', 'Zaragoza', '+34652345682', 'suspendido', '2023-08-22');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (6, 'Sofia', 'Martínez', 'sofia.m@email.com', 'Málaga', '+34662345683', 'activo', '2024-01-20');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (7, 'Diego', 'Sánchez', 'dsanchez@email.com', 'Murcia', '+34672345684', 'activo', '2023-12-11');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (8, 'Elena', 'Pérez', 'elena.perez@email.com', 'Palma', '+34682345685', 'inactivo', '2024-02-28');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (9, 'Gabriel', 'Gómez', 'ggomez@email.com', 'Bilbao', '+34692345686', 'activo', '2024-04-05');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (10, 'Lucía', 'Fernández', 'lucia.f@email.com', 'Alicante', '+34602345687', 'activo', '2023-10-14');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (11, 'Mateo', 'Díaz', 'mateo.d@email.com', 'Córdoba', '+34611345688', 'suspendido', '2024-01-02');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (12, 'Valeria', 'Torres', 'v.torres@email.com', 'Valladolid', '+34622345689', 'activo', '2023-09-18');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (13, 'Adrian', 'Ramírez', 'aramirez@email.com', 'Vigo', '+34633345690', 'activo', '2024-03-12');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (14, 'Carmen', 'Vargas', 'carmen.v@email.com', 'Gijón', '+34644345691', 'inactivo', '2023-07-30');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (15, 'Alejandro', 'Castro', 'acastro@email.com', 'Hospitalet', '+34655345692', 'activo', '2024-02-14');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (16, 'Paula', 'Morales', 'paula.m@email.com', 'Vitoria', '+34666345693', 'activo', '2024-04-01');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (17, 'Daniel', 'Ortiz', 'dortiz@email.com', 'La Coruña', '+34677345694', 'suspendido', '2023-12-01');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (18, 'Laura', 'Gutiérrez', 'laura.g@email.com', 'Elche', '+34688345695', 'activo', '2024-01-08');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (19, 'David', 'Rubio', 'drubio@email.com', 'Granada', '+34699345696', 'activo', '2023-10-25');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (20, 'Alba', 'Núñez', 'albanu@email.com', 'Terrassa', '+34600345697', 'inactivo', '2024-03-22');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (21, 'Jorge', 'Sanz', 'jsanz@email.com', 'Badalona', '+34612445698', 'activo', '2024-02-17');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (22, 'Marta', 'Iglesias', 'marta.i@email.com', 'Oviedo', '+34622555699', 'activo', '2023-11-30');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (23, 'Raúl', 'Medina', 'rmedina@email.com', 'Cartagena', '+34632665700', 'activo', '2024-01-29');
+insert into clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) values (24, 'Sara', 'Cortes', 'scortes@email.com', 'Jerez', '+34642775701', 'suspendido', '2023-08-14');
+INSERT INTO clientes (id_cliente, nombre, apellido, email, ciudad, telefono, estado_cuenta, fecha_registro) VALUES (25, 'Andrés', 'Castillo', 'acastillo@email.com', 'Sabadell', '+34652885702', 'activo', '2024-03-09');
+
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (101, 1, '2024-03-01', 150.50, 'tarjeta', 'entregado', 3);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (102, 2, '2024-03-02', 89.99, 'paypal', 'enviado', 1);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (103, 1, '2024-03-05', 320.00, 'transferencia', 'procesando', 5);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (104, 4, '2024-03-06', 45.25, 'tarjeta', 'entregado', 2);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (105, 6, '2024-03-07', 210.10, 'efectivo', 'cancelado', 4);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (106, 7, '2024-03-08', 55.00, 'tarjeta', 'entregado', 1);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (107, 9, '2024-03-10', 990.00, 'transferencia', 'enviado', 10);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (108, 10, '2024-03-11', 12.50, 'paypal', 'entregado', 1);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (109, 12, '2024-03-12', 430.75, 'tarjeta', 'procesando', 6);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (110, 13, '2024-03-14', 67.80, 'tarjeta', 'entregado', 2);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (111, 15, '2024-03-15', 180.00, 'paypal', 'enviado', 3);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (112, 16, '2024-03-16', 25.00, 'efectivo', 'entregado', 1);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (113, 18, '2024-03-18', 512.30, 'transferencia', 'procesando', 4);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (114, 19, '2024-03-19', 75.60, 'tarjeta', 'entregado', 2);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (115, 21, '2024-03-20', 134.00, 'paypal', 'cancelado', 3);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (116, 22, '2024-03-22', 88.50, 'tarjeta', 'enviado', 2);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (117, 23, '2024-03-23', 1050.00, 'transferencia', 'entregado', 12);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (118, 25, '2024-03-25', 44.00, 'efectivo', 'entregado', 1);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (119, 2, '2024-03-26', 199.99, 'tarjeta', 'procesando', 2);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (120, 4, '2024-03-27', 310.40, 'paypal', 'enviado', 5);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (121, 6, '2024-03-28', 62.00, 'tarjeta', 'entregado', 1);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (122, 9, '2024-03-29', 145.80, 'transferencia', 'entregado', 3);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (123, 12, '2024-03-30', 27.50, 'efectivo', 'cancelado', 1);
+insert into pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) values (124, 15, '2024-04-01', 890.00, 'tarjeta', 'procesando', 8);
+INSERT INTO pedidos (id_pedido, id_cliente, fecha_pedido, monto_total, metodo_pago, estatus, cantidad_productos) VALUES (125, 18, '2024-04-02', 115.00, 'paypal', 'enviado', 2);
+
+
+-- ============================================================
+-- BLOQUE 2: CONSULTAS SELECT (SIMPLES Y CON ALIAS/JOINS)
+-- ============================================================
+
+SELECT nombre, apellido FROM clientes WHERE ciudad = 'Madrid';
+select * from clientes where estado_cuenta = 'activo';
+SELECT email FROM clientes WHERE id_cliente = 5;
+select nombre, telefono from clientes where apellido = 'García';
+SELECT * FROM clientes WHERE fecha_registro = '2024-01-15';
+select ciudad from clientes where id_cliente = 12;
+SELECT nombre, email FROM clientes WHERE estado_cuenta = 'suspendido';
+select apellido from clientes where ciudad = 'Barcelona';
+SELECT * FROM clientes WHERE id_cliente = 20;
+select telefono from clientes where email = 'carlos.mendoza@email.com';
+SELECT nombre, ciudad FROM clientes WHERE estado_cuenta = 'inactivo';
+select id_cliente, email from clientes where nombre = 'Sofia';
+SELECT * FROM clientes WHERE ciudad = 'Sevilla';
+select nombre, apellido, telefono from clientes where id_cliente = 8;
+SELECT estado_cuenta FROM clientes WHERE email = 'dortiz@email.com';
+
+SELECT * FROM pedidos WHERE estatus = 'entregado';
+select monto_total from pedidos where id_pedido = 101;
+SELECT fecha_pedido, monto_total FROM pedidos WHERE id_cliente = 2;
+select * from pedidos where metodo_pago = 'paypal';
+SELECT id_pedido, estatus FROM pedidos WHERE monto_total = 150.50;
+select cantidad_productos from pedidos where id_pedido = 107;
+SELECT * FROM pedidos WHERE fecha_pedido = '2024-03-01';
+select id_cliente from pedidos where estatus = 'cancelado';
+SELECT monto_total, metodo_pago FROM pedidos WHERE id_pedido = 110;
+select * from pedidos where cantidad_productos = 1;
+SELECT id_pedido FROM pedidos WHERE estatus = 'procesando';
+select fecha_pedido from pedidos where id_pedido = 115;
+SELECT * FROM pedidos WHERE metodo_pago = 'transferencia';
+select monto_total from pedidos where estatus = 'enviado';
+SELECT id_pedido, cantidad_productos FROM pedidos WHERE id_cliente = 15;
+
+-- Consultas compuestas con alias (patrón clave para autocompletado de JOINs)
+SELECT c.nombre, c.apellido, p.monto_total FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE p.estatus = 'entregado';
+select c.email, p.id_pedido, p.fecha_pedido from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where c.ciudad = 'Madrid';
+SELECT c.nombre, p.metodo_pago FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE p.id_pedido = 103;
+select c.ciudad, p.monto_total from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where p.metodo_pago = 'paypal';
+SELECT c.nombre, c.telefono, p.estatus FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE c.estado_cuenta = 'activo';
+select c.apellido, p.cantidad_productos from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where p.monto_total = 990.00;
+SELECT p.id_pedido, c.email FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE p.estatus = 'procesando';
+select c.nombre, p.fecha_pedido from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where c.id_cliente = 4;
+SELECT c.ciudad, p.estatus FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE p.id_pedido = 112;
+select c.nombre, c.apellido, p.monto_total from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where c.ciudad = 'Barcelona';
+SELECT p.id_pedido, p.monto_total, c.telefono FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE p.metodo_pago = 'efectivo';
+select c.email, p.estatus from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where p.fecha_pedido = '2024-03-15';
+SELECT c.nombre, p.cantidad_productos FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE c.estado_cuenta = 'suspendido';
+select p.id_pedido, c.nombre, c.ciudad from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where p.estatus = 'cancelado';
+SELECT c.telefono, p.monto_total FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE p.id_pedido = 120;
+select c.nombre, c.apellido from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where p.metodo_pago = 'transferencia';
+SELECT c.email, p.monto_total, p.estatus FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE c.id_cliente = 9;
+select c.ciudad, p.fecha_pedido from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where p.cantidad_productos = 10;
+SELECT c.nombre, p.id_pedido FROM clientes c INNER JOIN pedidos p ON c.id_cliente = p.id_cliente WHERE c.ciudad = 'Valencia';
+select c.apellido, p.metodo_pago from clientes c inner join pedidos p on c.id_cliente = p.id_cliente where p.estatus = 'enviado';
+
+
+-- ============================================================
+-- BLOQUE 3: SENTENCIAS DELETE
+-- ============================================================
+
+DELETE FROM clientes WHERE id_cliente = 3;
+delete from clientes where email = 'luis.h@email.com';
+DELETE FROM clientes WHERE estado_cuenta = 'inactivo';
+delete from clientes where ciudad = 'Zaragoza';
+DELETE FROM clientes WHERE telefono = '+34652345682';
+delete from clientes where id_cliente = 5;
+DELETE FROM clientes WHERE nombre = 'Javier';
+delete from clientes where apellido = 'López';
+DELETE FROM clientes WHERE estado_cuenta = 'suspendido';
+delete from clientes where email = 'elena.perez@email.com';
+DELETE FROM clientes WHERE id_cliente = 8;
+delete from clientes where ciudad = 'Palma';
+DELETE FROM clientes WHERE fecha_registro = '2023-08-22';
+delete from clientes where id_cliente = 11;
+DELETE FROM clientes WHERE email = 'mateo.d@email.com';
+delete from clientes where ciudad = 'Córdoba';
+DELETE FROM clientes WHERE id_cliente = 14;
+delete from clientes where email = 'carmen.v@email.com';
+DELETE FROM clientes WHERE ciudad = 'Gijón';
+delete from clientes where id_cliente = 17;
+DELETE FROM clientes WHERE email = 'dortiz@email.com';
+delete from clientes where ciudad = 'La Coruña';
+DELETE FROM clientes WHERE id_cliente = 20;
+delete from clientes where email = 'albanu@email.com';
+DELETE FROM clientes WHERE ciudad = 'Terrassa';
+
+DELETE FROM pedidos WHERE id_pedido = 105;
+delete from pedidos where estatus = 'cancelado';
+DELETE FROM pedidos WHERE id_cliente = 6;
+delete from pedidos where monto_total = 210.10;
+DELETE FROM pedidos WHERE id_pedido = 115;
+delete from pedidos where id_cliente = 21;
+DELETE FROM pedidos WHERE monto_total = 134.00;
+delete from pedidos where id_pedido = 123;
+DELETE FROM pedidos WHERE id_cliente = 12;
+delete from pedidos where monto_total = 27.50;
+DELETE FROM pedidos WHERE id_pedido = 101;
+delete from pedidos where fecha_pedido = '2024-03-01';
+DELETE FROM pedidos WHERE metodo_pago = 'efectivo';
+delete from pedidos where id_pedido = 108;
+DELETE FROM pedidos WHERE monto_total = 12.50;
+delete from pedidos where id_pedido = 112;
+DELETE FROM pedidos WHERE cantidad_productos = 12;
+delete from pedidos where id_pedido = 117;
+DELETE FROM pedidos WHERE fecha_pedido = '2024-03-23';
+delete from pedidos where id_pedido = 118;
+DELETE FROM pedidos WHERE monto_total = 44.00;
+delete from pedidos where id_pedido = 121;
+DELETE FROM pedidos WHERE fecha_pedido = '2024-03-28';
+delete from pedidos where id_pedido = 122;
+DELETE FROM pedidos WHERE cantidad_productos = 8;
+
+
+-- ============================================================
+-- BLOQUE 4: SENTENCIAS UPDATE
+-- ============================================================
+
+UPDATE clientes SET estado_cuenta = 'inactivo' WHERE id_cliente = 1;
+update clientes set ciudad = 'Madrid' where email = 'ana.garcia@email.com';
+UPDATE clientes SET telefono = '+34600000000' WHERE id_cliente = 2;
+update clientes set email = 'nuevo.luis@email.com' where id_cliente = 3;
+UPDATE clientes SET estado_cuenta = 'suspendido' WHERE ciudad = 'Sevilla';
+update clientes set apellido = 'Martínez-Gómez' where id_cliente = 6;
+UPDATE clientes SET ciudad = 'Alicante' WHERE id_cliente = 7;
+update clientes set estado_cuenta = 'activo' where email = 'elena.perez@email.com';
+UPDATE clientes SET telefono = '+34699999999' WHERE id_cliente = 9;
+update clientes set nombre = 'Lucía María' where id_cliente = 10;
+UPDATE clientes SET estado_cuenta = 'activo' WHERE id_cliente = 11;
+update clientes set ciudad = 'Bilbao' where id_cliente = 12;
+UPDATE clientes SET email = 'adrian.ramirez@email.com' WHERE id_cliente = 13;
+update clientes set estado_cuenta = 'activo' where id_cliente = 14;
+UPDATE clientes SET apellido = 'Castro-Ruiz' WHERE id_cliente = 15;
+update clientes set telefono = '+34666000111' where id_cliente = 16;
+UPDATE clientes SET estado_cuenta = 'activo' WHERE id_cliente = 17;
+update clientes set ciudad = 'Valencia' where id_cliente = 18;
+UPDATE clientes SET email = 'david.rubio.new@email.com' WHERE id_cliente = 19;
+update clientes set estado_cuenta = 'activo' where id_cliente = 20;
+UPDATE clientes SET telefono = '+34612000000' WHERE id_cliente = 21;
+update clientes set ciudad = 'Gijón' where id_cliente = 22;
+UPDATE clientes SET estado_cuenta = 'inactivo' WHERE id_cliente = 23;
+update clientes set estado_cuenta = 'activo' where id_cliente = 24;
+UPDATE clientes SET email = 'andres.castillo@email.com' WHERE id_cliente = 25;
+
+UPDATE pedidos SET estatus = 'enviado' WHERE id_pedido = 103;
+update pedidos set monto_total = 50.00 where id_pedido = 104;
+UPDATE pedidos SET metodo_pago = 'tarjeta' WHERE id_pedido = 107;
+update pedidos set estatus = 'entregado' where id_pedido = 109;
+UPDATE pedidos SET cantidad_productos = 3 WHERE id_pedido = 110;
+update pedidos set estatus = 'procesando' where id_pedido = 111;
+UPDATE pedidos SET metodo_pago = 'paypal' WHERE id_pedido = 113;
+update pedidos set estatus = 'enviado' where id_pedido = 114;
+UPDATE pedidos SET monto_total = 95.00 WHERE id_pedido = 116;
+update pedidos set estatus = 'enviado' where id_pedido = 119;
+UPDATE pedidos SET cantidad_productos = 6 WHERE id_pedido = 120;
+update pedidos set metodo_pago = 'transferencia' where id_pedido = 124;
+UPDATE pedidos SET estatus = 'entregado' WHERE id_pedido = 125;
+update pedidos set monto_total = 160.00 where id_pedido = 101;
+UPDATE pedidos SET estatus = 'entregado' WHERE id_pedido = 102;
+update pedidos set metodo_pago = 'efectivo' where id_pedido = 106;
+UPDATE pedidos SET cantidad_productos = 2 WHERE id_pedido = 108;
+update pedidos set monto_total = 30.00 where id_pedido = 112;
+UPDATE pedidos SET estatus = 'procesando' WHERE id_pedido = 116;
+update pedidos set cantidad_productos = 15 where id_pedido = 117;
+UPDATE pedidos SET metodo_pago = 'tarjeta' WHERE id_pedido = 118;
+update pedidos set monto_total = 210.00 where id_pedido = 119;
+UPDATE pedidos SET estatus = 'cancelado' WHERE id_pedido = 121;
+update pedidos set monto_total = 150.00 where id_pedido = 122;
+UPDATE pedidos SET cantidad_productos = 9 WHERE id_pedido = 124;

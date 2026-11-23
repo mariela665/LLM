@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 56px 24px;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(229, 193, 224, 0.3), transparent 52%),
+    #fbf8fc;
+  color: #382d3d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.editor-card {
+  overflow: hidden;
+  border: 1px solid #eadfea;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(111, 73, 110, 0.1);
+}
+
+.card-header {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: linear-gradient(110deg, #fffafd, #faf6ff);
+}
+
+.eyebrow {
+  margin-bottom: 5px;
+  color: #a56c9c;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.card-title {
+  color: #382d3d;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.card-hint {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #826f83;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+kbd {
+  min-width: 32px;
+  padding: 5px 8px;
+  border: 1px solid #e7d8e7;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #8c5e87;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  border-top: 1px solid #efe7ef;
+  background: #fffefe;
+}
+
+textarea {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  min-height: 360px;
+  padding: 20px;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: #332c37;
+  caret-color: #b46ca8;
+  font-family: "Fira Code", Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  resize: vertical;
+  tab-size: 2;
+}
+
+textarea::placeholder {
+  color: #b9aebb;
+  font-family: inherit;
+}
+
+.textarea-wrapper:focus-within {
+  box-shadow: inset 0 0 0 1px rgba(193, 132, 184, 0.24);
+}
+
+.textarea-wrapper #ghostOverlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding: 20px;
+  color: transparent;
+  font-family: "Fira Code", Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  pointer-events: none;
+}
+
+.ghost-text {
+  color: #c2a8c0;
+}
+
+.editor-footer {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px;
+  border-top: 1px solid #f0e9f0;
+  color: #958696;
+  font-size: 11px;
+}
+
+.footer-note {
+  color: #b07ca7;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 28px 14px;
+  }
+
+  .card-header {
+    min-height: 72px;
+    padding: 14px 16px;
+  }
+
+  .card-title {
+    font-size: 17px;
+  }
+
+  .card-hint {
+    font-size: 11px;
+  }
+
+  textarea,
+  .textarea-wrapper #ghostOverlay {
+    padding: 16px;
+    font-size: 13px;
+  }
+
+  textarea,
+  .textarea-wrapper {
+    min-height: 300px;
+  }
+
+  .editor-footer {
+    padding: 10px 14px;
+    font-size: 10px;
+  }
+}
